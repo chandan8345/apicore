@@ -24,16 +24,9 @@ namespace APICORE.Controller
         [HttpGet]
         public string Get()
         {
-            string sql = "select newid() as id";
+            string sql = "select * from test";
             DataTable dt = da.GetDataTableByCommand(sql);
-            if (dt.Rows.Count > 0)
-            {
-                return JsonConvert.SerializeObject(dt);
-            }
-            else
-            {
-                return "No Data Found";
-            }
+            return JsonConvert.SerializeObject(dt);
         }
 
         // GET api/<apiController>/5
@@ -45,19 +38,19 @@ namespace APICORE.Controller
 
         // POST api/<apiController>
         [HttpPost]
-        public string Post([FromBody] string value)
+        public string Post([FromBody] test testModel)
         {
-            return "works";
-            //Hashtable ht = new Hashtable();
-            //ht.Add("name","Chandan");
-            //ht.Add("contact_no","01762981976");
-            //DataTable dt = da.ExecuteStoredProcedure("test_insert",ht);
-            //if (dt.Rows.Count > 0) {
-            //    return "Done";
-            //}
-            //{
-            //    return "Failed";
-            //}
+            Hashtable ht = new Hashtable();
+            ht.Add("name", testModel.name);
+            ht.Add("contact_no", testModel.contact_no);
+            DataTable dt = da.ExecuteStoredProcedure("test_insert", ht);
+            if (dt.Rows.Count > 0)
+            {
+                return "Done";
+            }
+            {
+                return "Failed";
+            }
         }
 
         // PUT api/<apiController>/5
