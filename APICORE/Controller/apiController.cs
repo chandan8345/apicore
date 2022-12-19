@@ -44,13 +44,7 @@ namespace APICORE.Controller
             ht.Add("name", testModel.name);
             ht.Add("contact_no", testModel.contact_no);
             DataTable dt = da.ExecuteStoredProcedure("test_insert", ht);
-            if (dt.Rows.Count > 0)
-            {
-                return "Done";
-            }
-            {
-                return "Failed";
-            }
+            return JsonConvert.SerializeObject(dt);
         }
 
         // PUT api/<apiController>/5
