@@ -1328,11 +1328,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Web Projects\\APICORE\\APICORE\\APICORE.csproj",
+      "projectUniqueName": "G:\\apicore\\APICORE\\APICORE.csproj",
       "projectName": "APICORE",
-      "projectPath": "G:\\Web Projects\\APICORE\\APICORE\\APICORE.csproj",
+      "projectPath": "G:\\apicore\\APICORE\\APICORE.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "G:\\Web Projects\\APICORE\\APICORE\\obj\\",
+      "outputPath": "G:\\apicore\\APICORE\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

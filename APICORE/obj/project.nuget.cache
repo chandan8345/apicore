@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NgPzopuZzOTtTaI/9BftceROHZM95OydMUGS6vf+2WIYuogbZ6GI3cWdIeM3lRtHQZv2S9YR/qQ7hWMQBmQNBg==",
+  "dgSpecHash": "3Qg5H5ayloiqGS5GaYrp0SgOsTEXq0WOqOpr1PJh3LjFj8mK1slHk/uBs1RaWmDwoHux+tm/cDn9SrDrg0Z/Eg==",
   "success": true,
-  "projectFilePath": "G:\\Web Projects\\APICORE\\APICORE\\APICORE.csproj",
+  "projectFilePath": "G:\\apicore\\APICORE\\APICORE.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
