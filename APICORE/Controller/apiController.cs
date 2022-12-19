@@ -33,7 +33,9 @@ namespace APICORE.Controller
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            return "value";
+            string sql = "select * from test where id='"+ id +"'";
+            DataTable dt = da.GetDataTableByCommand(sql);
+            return JsonConvert.SerializeObject(dt);
         }
 
         // POST api/<apiController>
@@ -51,12 +53,16 @@ namespace APICORE.Controller
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
+
         }
 
         // DELETE api/<apiController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public string Delete(int id)
         {
+            string sql = "delete from test where id='" + id + "'";
+            da.ExecuteScalar(sql);
+            return "delete success";
         }
     }
 }
