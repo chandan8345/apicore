@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "bmoLzbze4gc2de5wmzvqaYIj5bxRTKGs8hDXiNS5Vdoi5Q/sNtvzM6/wv0tm00maVW1qflA/IOhmGFykSNdJbw==",
+  "dgSpecHash": "Z7lXvoq8LP7GS9dKHpraO5FnwZVND7IQcYkirqcOphYu8vztJKz+Vr522/j/c0cyFGz8WdgwoBoqmYycOQLUhQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Chandan\\Source\\Repos\\chandan8345\\apicore\\Mafia\\Mafia\\Mafia.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Chandan\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Chandan\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\Chandan\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\Chandan\\.nuget\\packages\\restsharp\\106.15.0\\restsharp.106.15.0.nupkg.sha512",
     "C:\\Users\\Chandan\\.nuget\\packages\\restsharp.serializers.systemtextjson\\106.15.0\\restsharp.serializers.systemtextjson.106.15.0.nupkg.sha512",
     "C:\\Users\\Chandan\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
