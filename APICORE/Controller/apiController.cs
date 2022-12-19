@@ -1,8 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using APICORE.DAL;
+using System.Data;
+using APICORE.Model;
+using System.Data.Common;
+using Newtonsoft.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,11 +18,22 @@ namespace APICORE.Controller
     [ApiController]
     public class apiController : ControllerBase
     {
+        mafia_access da = new mafia_access();
+        
         // GET: api/<apiController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public string Get()
         {
-            return new string[] { "value1", "value2" };
+            string sql = "select newid() as id";
+            DataTable dt = da.GetDataTableByCommand(sql);
+            if (dt.Rows.Count > 0)
+            {
+                return JsonConvert.SerializeObject(dt);
+            }
+            else
+            {
+                return "No Data Found";
+            }
         }
 
         // GET api/<apiController>/5
@@ -28,8 +45,19 @@ namespace APICORE.Controller
 
         // POST api/<apiController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public string Post([FromBody] string value)
         {
+            return "works";
+            //Hashtable ht = new Hashtable();
+            //ht.Add("name","Chandan");
+            //ht.Add("contact_no","01762981976");
+            //DataTable dt = da.ExecuteStoredProcedure("test_insert",ht);
+            //if (dt.Rows.Count > 0) {
+            //    return "Done";
+            //}
+            //{
+            //    return "Failed";
+            //}
         }
 
         // PUT api/<apiController>/5

@@ -92,8 +92,9 @@ namespace APICORE.DAL
 
         private void OpenAppConnection()
         {
-            string ConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            if (!ConnectionString.Equals(""))
+            //string ConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+
+            if (!AppConn.Equals(""))
             {
                 if (AppConn.State != ConnectionState.Open)
                 {
