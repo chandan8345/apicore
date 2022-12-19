@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "G:\\apicore\\Mafia\\Mafia\\Mafia.csproj": {}
+    "C:\\Users\\Chandan\\Source\\Repos\\chandan8345\\apicore\\Mafia\\Mafia\\Mafia.csproj": {}
   },
   "projects": {
-    "G:\\apicore\\Mafia\\Mafia\\Mafia.csproj": {
+    "C:\\Users\\Chandan\\Source\\Repos\\chandan8345\\apicore\\Mafia\\Mafia\\Mafia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\apicore\\Mafia\\Mafia\\Mafia.csproj",
+        "projectUniqueName": "C:\\Users\\Chandan\\Source\\Repos\\chandan8345\\apicore\\Mafia\\Mafia\\Mafia.csproj",
         "projectName": "Mafia",
-        "projectPath": "G:\\apicore\\Mafia\\Mafia\\Mafia.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "G:\\apicore\\Mafia\\Mafia\\obj\\",
+        "projectPath": "C:\\Users\\Chandan\\Source\\Repos\\chandan8345\\apicore\\Mafia\\Mafia\\Mafia.csproj",
+        "packagesPath": "C:\\Users\\Chandan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Chandan\\Source\\Repos\\chandan8345\\apicore\\Mafia\\Mafia\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Chandan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,16 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "RestSharp.Serializers.SystemTextJson": {
+              "target": "Package",
+              "version": "[106.15.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -57,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.414\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.415\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,22 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Text;
+﻿using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
-using System.Collections;
-using System.Configuration;
-using System.Net;
-using System.Net.Mail;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
+using System.Net.Mail;
+using System.Net;
 
-namespace APICORE.DAL
+namespace Mafia.DAL
 {
-    public class mafia_access
+    public class data_access
     {
         private SqlTransaction Trans;
-        private SqlConnection AppConn = new SqlConnection("Data Source=CHANDAN-PC;Database=TEST_DB;Trusted_Connection=True;MultipleActiveResultSets=true");
+        //private SqlConnection AppConn = new SqlConnection("Data Source=CHANDAN-PC;Database=TEST_DB;Trusted_Connection=True;MultipleActiveResultSets=true");
+        private SqlConnection AppConn = new SqlConnection("Data Source=DESKTOP-URQTE7E;Database=mafia;Trusted_Connection=True;MultipleActiveResultSets=true");
         private SqlCommand Cmnd;
 
         public DataTable ExecuteStoredProcedure(string storedProcedureName, Hashtable parameters)
