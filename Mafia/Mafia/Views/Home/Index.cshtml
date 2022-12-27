@@ -21,32 +21,32 @@
                 Featured
             </div>
             <div class="card-body">
-                <form>
+                <form id="employee-form">
                     <div class="form-row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-3">
                             <label for="inputEmail4">Name</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Email">
+                            <input type="text" class="form-control" id="name" placeholder="">
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-3">
                             <label for="inputPassword4">Email</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="Password">
+                            <input type="email" class="form-control" id="email" placeholder="">
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-3">
                             <label for="inputPassword4">Age</label>
-                            <input type="number" class="form-control" id="inputPassword4" placeholder="Password">
+                            <input type="number" class="form-control" id="age" placeholder="">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputState">Designation</label>
+                            <select id="designation" class="form-control">
+                                <option value="0">Select One</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label for="inputState">Designation</label>
-                            <select id="inputState" class="form-control">
-                                <option>Choose...</option>
-                                <option></option>
-                            </select>
-                        </div>
+                        
                         <div class="form-group col-md-2">
                             <label for="inputState"></label>
-                            <button type="submit" class="btn btn-primary form-control" style="margin-top:8px;">Submit</button>
+                            <button type="submit"  class="btn btn-primary form-control" style="margin-top:8px;">Submit</button>
                         </div>
                         </div>
 
@@ -55,7 +55,7 @@
             </div>
             <br />
             <table class="table table-hover">
-                <thead class="thead-dark">
+                <thead class="thead-primary">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
@@ -78,12 +78,66 @@
             </table>
         </div>
     </div>
-
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script type="text/javascript">
             $(function () {
 
-
+                $('#employee-form').on('submit', function (e) {
+                    e.preventDefault();
+                    var postData = {
+                        "name": $("#name").val(),
+                        "email": $("#email").val(),
+                        "age": $("#age").val(),
+                        "designation": $("#designation").val()
+                    }
+                    swal({
+                        title: 'Do you want to Save ?',
+                        showCancelButton: true,
+                        showConfirmButton: true,
+                        confirmButtonText: 'Yes',
+                        cancelButtonText: 'No',
+                        confirmButtonClass: 'btn btn-primary',
+                        cancelButtonClass: 'btn btn-danger',
+                        icon: 'warning',
+                        buttonsStyling: true,
+                        buttons: true,
+                        buttons: ["No", "Yes"]
+                    }).then(function (yes) {
+                        if (yes) {
+                            $.ajax({
+                                type: "POST",
+                                url: '/api/test/employeeInsert',
+                                contentType: 'application/json',
+                                data: JSON.stringify(postData),
+                                beforeSend: function () {
+                                    Show();
+                                },
+                                success: function (response) {
+                                    console.log(response);
+                                    Hide();
+                                    swal("Message", "Data Saved Successfully!", "success");
+                                },
+                                error: function() {
+                                    swal("Message", "Something went wrong!", "error");
+                                }
+                            });
+                        }
+                    });
+                });
+                
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/test/Designation',
+                    dataType: 'JSON',
+                    success: function (data) {
+                        console.log(data);
+                        // remove previously loaded options
+                        for (i in data) {
+                        $('#designation').append('<option value = ' + data[i].id + '>' + data[i].name + '</option>');
+                        }
+                    }
+                });
 
                 $(document).ready(function () {
                     $("#div_Loader").hide();
@@ -99,8 +153,3 @@
             });
 
         </script>
-
-
-
-
-

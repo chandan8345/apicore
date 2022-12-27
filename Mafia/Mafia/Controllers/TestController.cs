@@ -27,6 +27,15 @@ namespace Mafia.Controllers
             return JsonConvert.SerializeObject(dt);
         }
 
+        [HttpGet]
+        [Route("Designation")]
+        public string Designation()
+        {
+            string sql = "select * from designation";
+            DataTable dt = da.GetDataTableByCommand(sql);
+            return JsonConvert.SerializeObject(dt);
+        }
+
         // GET api/<apiController>/5
         [HttpGet("{id}")]
         public string Get(int id)
@@ -38,10 +47,14 @@ namespace Mafia.Controllers
 
         // POST api/<apiController>
         [HttpPost]
+        [Route("employeeInsert")]
         public string Post([FromBody] Empolyee empolyee)
         {
             Hashtable ht = new Hashtable();
-            ht.Add("FirstName", empolyee.FirstName);
+            ht.Add("name", empolyee.name);
+            ht.Add("email", empolyee.email);
+            ht.Add("age", empolyee.age);
+            ht.Add("designation", empolyee.designation);
             DataTable dt = da.ExecuteStoredProcedure("insert_empoloyee", ht);
             return JsonConvert.SerializeObject(dt);
         }
