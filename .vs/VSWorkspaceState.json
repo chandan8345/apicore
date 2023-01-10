@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Mafia",
-    "\\Mafia\\Mafia",
-    "\\Mafia\\Mafia\\Controllers"
+    ""
   ],
-  "SelectedNode": "\\Mafia\\Mafia\\Controllers\\TestController.cs",
+  "SelectedNode": "\\Mafia.sln",
   "PreviewInSolutionExplorer": false
 }

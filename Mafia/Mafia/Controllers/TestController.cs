@@ -22,7 +22,7 @@ namespace Mafia.Controllers
         [HttpGet]
         public string Get()
         {
-            string sql = "select * from EmployeeAlt";
+            string sql = "select * from employee";
             DataTable dt = da.GetDataTableByCommand(sql);
             return JsonConvert.SerializeObject(dt);
         }
@@ -40,7 +40,7 @@ namespace Mafia.Controllers
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            string sql = "select * from EmployeeAlt where id='" + id + "'";
+            string sql = "select * from employee where id='" + id + "'";
             DataTable dt = da.GetDataTableByCommand(sql);
             return JsonConvert.SerializeObject(dt);
         }
@@ -70,7 +70,7 @@ namespace Mafia.Controllers
         [HttpDelete("{id}")]
         public string Delete(int id)
         {
-            string sql = "delete from EmployeeAlt where id='" + id + "'";
+            string sql = "delete from employee where id='" + id + "'";
             da.ExecuteScalar(sql);
             return "delete success";
         }

@@ -14,8 +14,8 @@ namespace Mafia.DAL
     public class data_access
     {
         private SqlTransaction Trans;
-        //private SqlConnection AppConn = new SqlConnection("Data Source=CHANDAN-PC;Database=TEST_DB;Trusted_Connection=True;MultipleActiveResultSets=true");
-        private SqlConnection AppConn = new SqlConnection("Data Source=DESKTOP-URQTE7E;Database=mafia;Trusted_Connection=True;MultipleActiveResultSets=true");
+        private SqlConnection AppConn = new SqlConnection("Data Source=CHANDAN-PC;Database=TEST_DB;Trusted_Connection=True;MultipleActiveResultSets=true");
+        //private SqlConnection AppConn = new SqlConnection("Data Source=DESKTOP-URQTE7E;Database=mafia;Trusted_Connection=True;MultipleActiveResultSets=true");
         private SqlCommand Cmnd;
 
         public DataTable ExecuteStoredProcedure(string storedProcedureName, Hashtable parameters)
