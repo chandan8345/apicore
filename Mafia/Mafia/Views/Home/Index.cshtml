@@ -109,13 +109,25 @@
                             beforeSend: function () {
                                 Show();
                             },
-                            success: function (response) {
-                                console.log(response);
+                            success: function (data) {
+                                console.log(data);
                                 Hide();
-                                $('#example').DataTable().destroy();
-                                $('#example tbody').html(response);
-                                $('#example').DataTable({
+                                $.ajax({
+                                    type: 'GET',
+                                    url: '/api/test',
+                                    dataType: 'JSON',
+                                    success: function (data) {
+                                        $('#example').DataTable().destroy();
+                                        $.each(data, function (index) {
+                                            console.log(data[index]["name"]);
+                                            $('#example tbody').append('<tr><td>' + data[index]["name"] + '</td><td>' + data[index]["email"] + '</td><td>' + data[index]["age"] + '</td><td>' + data[index]["designation"] + '</td></tr>');
+                                        });
+                                        $('#example').DataTable({
 
+                                        });
+                                        // remove previously loaded options
+
+                                    }
                                 });
                                 swal("Message", "Data Saved Successfully!", "success");
                             },
@@ -145,16 +157,16 @@
                 url: '/api/test',
                 dataType: 'JSON',
                 success: function (data) {
-                    console.log(data);
-                    // remove previously loaded options
                     $('#example').DataTable().destroy();
-                    //$('#example tbody').html(data);
-                    $('#example').DataTable({
-                        data: data,
-                        columns: [
-                            { "data": data.name, data.age},
-                        ]
+                    $.each(data, function (index) {
+                        console.log(data[index]["name"]);
+                        $('#example tbody').append('<tr><td>' + data[index]["name"] + '</td><td>' + data[index]["email"] + '</td><td>' + data[index]["age"] + '</td><td>' + data[index]["designation"] +'</td></tr>');
                     });
+                    $('#example').DataTable({
+
+                    });
+                    // remove previously loaded options
+
                 }
             });
 

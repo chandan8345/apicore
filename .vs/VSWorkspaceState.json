@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Mafia",
+    "\\Mafia\\Mafia",
+    "\\Mafia\\Mafia\\Views",
+    "\\Mafia\\Mafia\\Views\\Home"
   ],
-  "SelectedNode": "\\Mafia.sln",
+  "SelectedNode": "\\Mafia\\Mafia\\Views\\Home\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }
