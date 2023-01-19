@@ -63,6 +63,7 @@
                     <th scope="col">Email</th>
                     <th scope="col">Age</th>
                     <th scope="col">Designation</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -118,10 +119,11 @@
                                     dataType: 'JSON',
                                     success: function (data) {
                                         $('#example').DataTable().destroy();
+                                        var table;
                                         $.each(data, function (index) {
-                                            console.log(data[index]["name"]);
-                                            $('#example tbody').append('<tr><td>' + data[index]["name"] + '</td><td>' + data[index]["email"] + '</td><td>' + data[index]["age"] + '</td><td>' + data[index]["designation"] + '</td></tr>');
+                                            table += '<tr><td>' + data[index]["name"] + '</td><td>' + data[index]["email"] + '</td><td>' + data[index]["age"] + '</td><td>' + data[index]["designation"] + '</td><td><button type="button" class="btn btn-success"><i class="bi bi-0-circle"></i></button></td></tr>';
                                         });
+                                        $('#example tbody').append(table);
                                         $('#example').DataTable({
 
                                         });
@@ -159,20 +161,25 @@
                 success: function (data) {
                     $('#example').DataTable().destroy();
                     $.each(data, function (index) {
-                        console.log(data[index]["name"]);
-                        $('#example tbody').append('<tr><td>' + data[index]["name"] + '</td><td>' + data[index]["email"] + '</td><td>' + data[index]["age"] + '</td><td>' + data[index]["designation"] +'</td></tr>');
+                        $('#example tbody').append('<tr><td>' + data[index]["name"] + '</td><td>' + data[index]["email"] + '</td><td>' + data[index]["age"] + '</td><td>' + data[index]["designation"] + '</td><td> <a href="" class="btn btn-primary btn-sm" type="button">Edit</a>  <button type="button" onclick="deleteEmployee(' + data[index]["id"] +')" class="btn btn-danger btn-sm">Delete</button></td></tr>');
                     });
                     $('#example').DataTable({
 
                     });
+                    function deleteEmployee(id) {
+                        console.log(id);
+                    }
                     // remove previously loaded options
 
                 }
             });
 
+
             $(document).ready(function () {
                 $("#div_Loader").hide();
             });
+
+
 
             function Show() {
                 $('#div_Loader').show();
