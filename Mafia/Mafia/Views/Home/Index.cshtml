@@ -118,14 +118,14 @@
                                     url: '/api/test',
                                     dataType: 'JSON',
                                     success: function (data) {
-                                        $('#example').DataTable().destroy();
-                                        var table;
+                                        $('#example').dataTable().fnClearTable();
+                                        $('#example').dataTable().fnDestroy();
+                                        
                                         $.each(data, function (index) {
-                                            table += '<tr><td>' + data[index]["name"] + '</td><td>' + data[index]["email"] + '</td><td>' + data[index]["age"] + '</td><td>' + data[index]["designation"] + '</td><td><button type="button" class="btn btn-success"><i class="bi bi-0-circle"></i></button></td></tr>';
+                                            $('#example tbody').append('<tr><td>' + data[index]["name"] + '</td><td>' + data[index]["email"] + '</td><td>' + data[index]["age"] + '</td><td>' + data[index]["designation"] + '</td><td> <a href="" class="btn btn-primary btn-sm" type="button">Edit</a>  <button type="button" onclick="deleteEmployee(' + data[index]["id"] + ')" class="btn btn-danger btn-sm">Delete</button></td></tr>');
                                         });
-                                        $('#example tbody').append(table);
                                         $('#example').DataTable({
-
+                                            "destroy": true,
                                         });
                                         // remove previously loaded options
 
@@ -159,27 +159,23 @@
                 url: '/api/test',
                 dataType: 'JSON',
                 success: function (data) {
-                    $('#example').DataTable().destroy();
+                    $('#example').dataTable().fnClearTable();
+                    $('#example').dataTable().fnDestroy();
                     $.each(data, function (index) {
                         $('#example tbody').append('<tr><td>' + data[index]["name"] + '</td><td>' + data[index]["email"] + '</td><td>' + data[index]["age"] + '</td><td>' + data[index]["designation"] + '</td><td> <a href="" class="btn btn-primary btn-sm" type="button">Edit</a>  <button type="button" onclick="deleteEmployee(' + data[index]["id"] +')" class="btn btn-danger btn-sm">Delete</button></td></tr>');
                     });
                     $('#example').DataTable({
-
+                        "destroy": true,
                     });
-                    function deleteEmployee(id) {
-                        console.log(id);
-                    }
+
                     // remove previously loaded options
 
                 }
             });
 
-
             $(document).ready(function () {
                 $("#div_Loader").hide();
             });
-
-
 
             function Show() {
                 $('#div_Loader').show();
@@ -190,4 +186,18 @@
             }
         });
     });
+</script>
+
+<script type="text/javascript">
+    function deleteEmployee(id) {
+            $.ajax({
+                type: 'DELETE',
+                url: '/api/test/'+id,
+                success: function (data) {
+                    console.log(data);
+                    alert('Delete Successfully');
+                     window.location.reload();
+                }
+            });
+    }
 </script>
