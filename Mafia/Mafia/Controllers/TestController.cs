@@ -61,9 +61,16 @@ namespace Mafia.Controllers
 
         // PUT api/<apiController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public string Put(int id, [FromBody] Empolyee empolyee)
         {
-            
+            Hashtable ht = new Hashtable();
+            ht.Add("id", id);
+            ht.Add("name", empolyee.name);
+            ht.Add("email", empolyee.email);
+            ht.Add("age", empolyee.age);
+            ht.Add("designation", empolyee.designation);
+            DataTable dt = da.ExecuteStoredProcedure("update_empoloyee", ht);
+            return JsonConvert.SerializeObject(dt);
         }
 
         // DELETE api/<apiController>/5

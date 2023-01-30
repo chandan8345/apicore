@@ -28,6 +28,7 @@
                         <div class="form-group col-md-3">
                             <label for="inputEmail4">Name</label>
                             <input type="text" class="form-control" id="name" placeholder="">
+                            <input type="hidden" class="form-control" id="id" placeholder="">
                         </div>
                         <div class="form-group col-md-3">
                             <label for="inputPassword4">Email</label>
@@ -48,7 +49,7 @@
 
                         <div class="form-group col-md-2">
                             <label for="inputState"></label>
-                            <button type="submit" class="btn btn-primary form-control" style="margin-top:8px;">Submit</button>
+                            <button id="submitBtn" type="submit" class="btn btn-primary form-control" style="margin-top:8px;">Submit</button>
                         </div>
                     </div>
 
@@ -78,67 +79,75 @@
 <script type="text/javascript">
     jQuery(document).ready(function ($) {
         $(function () {
+            $("#id").val(0);
+
             $('#example').DataTable({});
 
             $('#employee-form').on('submit', function (e) {
                 e.preventDefault();
-                var postData = {
-                    "name": $("#name").val(),
-                    "email": $("#email").val(),
-                    "age": $("#age").val(),
-                    "designation": $("#designation").val()
-                }
-                swal({
-                    title: 'Do you want to Save ?',
-                    showCancelButton: true,
-                    showConfirmButton: true,
-                    confirmButtonText: 'Yes',
-                    cancelButtonText: 'No',
-                    confirmButtonClass: 'btn btn-primary',
-                    cancelButtonClass: 'btn btn-danger',
-                    icon: 'warning',
-                    buttonsStyling: true,
-                    buttons: true,
-                    buttons: ["No", "Yes"]
-                }).then(function (yes) {
-                    if (yes) {
-                        $.ajax({
-                            type: "POST",
-                            url: '/api/test/employeeInsert',
-                            contentType: 'application/json',
-                            data: JSON.stringify(postData),
-                            beforeSend: function () {
-                                Show();
-                            },
-                            success: function (data) {
-                                console.log(data);
-                                Hide();
-                                $.ajax({
-                                    type: 'GET',
-                                    url: '/api/test',
-                                    dataType: 'JSON',
-                                    success: function (data) {
-                                        $('#example').dataTable().fnClearTable();
-                                        $('#example').dataTable().fnDestroy();
-                                        
-                                        $.each(data, function (index) {
-                                            $('#example tbody').append('<tr><td>' + data[index]["name"] + '</td><td>' + data[index]["email"] + '</td><td>' + data[index]["age"] + '</td><td>' + data[index]["designation"] + '</td><td> <a href="" class="btn btn-primary btn-sm" type="button">Edit</a>  <button type="button" onclick="deleteEmployee(' + data[index]["id"] + ')" class="btn btn-danger btn-sm">Delete</button></td></tr>');
-                                        });
-                                        $('#example').DataTable({
-                                            "destroy": true,
-                                        });
-                                        // remove previously loaded options
-
-                                    }
-                                });
-                                swal("Message", "Data Saved Successfully!", "success");
-                            },
-                            error: function () {
-                                swal("Message", "Something went wrong!", "error");
-                            }
-                        });
+                var id = $("#id").val();
+                if (id == 0) {
+                    var postData = {
+                        "name": $("#name").val(),
+                        "email": $("#email").val(),
+                        "age": $("#age").val(),
+                        "designation": $("#designation").val()
                     }
-                });
+                    swal({
+                        title: 'Do you want to Save ?',
+                        showCancelButton: true,
+                        showConfirmButton: true,
+                        confirmButtonText: 'Yes',
+                        cancelButtonText: 'No',
+                        confirmButtonClass: 'btn btn-primary',
+                        cancelButtonClass: 'btn btn-danger',
+                        icon: 'warning',
+                        buttonsStyling: true,
+                        buttons: true,
+                        buttons: ["No", "Yes"]
+                    }).then(function (yes) {
+                        if (yes) {
+                            $.ajax({
+                                type: "POST",
+                                url: '/api/test/employeeInsert',
+                                contentType: 'application/json',
+                                data: JSON.stringify(postData),
+                                beforeSend: function () {
+                                    Show();
+                                },
+                                success: function (data) {
+                                    console.log(data);
+                                    Hide();
+                                    $.ajax({
+                                        type: 'GET',
+                                        url: '/api/test',
+                                        dataType: 'JSON',
+                                        success: function (data) {
+                                            $('#example').dataTable().fnClearTable();
+                                            $('#example').dataTable().fnDestroy();
+
+                                            $.each(data, function (index) {
+                                                $('#example tbody').append('<tr><td>' + data[index]["name"] + '</td><td>' + data[index]["email"] + '</td><td>' + data[index]["age"] + '</td><td>' + data[index]["designation"] + '</td><td> <a href="" class="btn btn-primary btn-sm" type="button" onclick="editEmployee(' + data[index]["id"] + ')">Edit</a>  <button type="button" onclick="deleteEmployee(' + data[index]["id"] + ')" class="btn btn-danger btn-sm">Delete</button></td></tr>');
+                                            });
+                                            $('#example').DataTable({
+                                                "destroy": true,
+                                            });
+                                            // remove previously loaded options
+
+                                        }
+                                    });
+                                    swal("Message", "Data Saved Successfully!", "success");
+                                },
+                                error: function () {
+                                    swal("Message", "Something went wrong!", "error");
+                                }
+                            });
+                        }
+                    });
+                }
+                else {
+                    update();
+                }
             });
 
             $.ajax({
@@ -162,7 +171,7 @@
                     $('#example').dataTable().fnClearTable();
                     $('#example').dataTable().fnDestroy();
                     $.each(data, function (index) {
-                        $('#example tbody').append('<tr><td>' + data[index]["name"] + '</td><td>' + data[index]["email"] + '</td><td>' + data[index]["age"] + '</td><td>' + data[index]["designation"] + '</td><td> <a href="" class="btn btn-primary btn-sm" type="button">Edit</a>  <button type="button" onclick="deleteEmployee(' + data[index]["id"] +')" class="btn btn-danger btn-sm">Delete</button></td></tr>');
+                        $('#example tbody').append('<tr><td>' + data[index]["name"] + '</td><td>' + data[index]["email"] + '</td><td>' + data[index]["age"] + '</td><td>' + data[index]["designation"] + '</td><td> <button type="button" onclick="editEmployee(' + data[index]["id"] +')" class="btn btn-primary btn-sm">Edit</button> <button type="button" onclick="deleteEmployee(' + data[index]["id"] +')" class="btn btn-danger btn-sm">Delete</button></td></tr>');
                     });
                     $('#example').DataTable({
                         "destroy": true,
@@ -196,8 +205,49 @@
                 success: function (data) {
                     console.log(data);
                     alert('Delete Successfully');
-                     window.location.reload();
+                    window.location.reload();
                 }
             });
+    }
+    function editEmployee(id) {
+        $("#submitBtn").html('Update');
+        $.ajax({
+            type: 'GET',
+            url: '/api/test/' + id,
+            dataType: 'JSON',
+            success: function (data) {
+                console.log(data);
+                $("#id").val(data[0]["id"]);
+                $("#name").val(data[0]["name"]);
+                $("#email").val(data[0]["email"]);
+                $("#age").val(data[0]["age"]);
+                $("#designation").val(data[0]["designation"]);
+            }
+        });
+    }
+
+    function update() {
+        var id = $("#id").val();
+
+        var postData = {
+            "name": $("#name").val(),
+            "email": $("#email").val(),
+            "age": $("#age").val(),
+            "designation": $("#designation").val()
+        }
+
+        $.ajax({
+            type: 'PUT',
+            url: '/api/test/' + id,
+            contentType: 'application/json',
+            data: JSON.stringify(postData),
+            success: function (data) {
+                console.log(data);
+                $("#id").val(0);
+                $("#submitBtn").html('Submit');
+                alert('Update Successfully');
+                window.location.reload();
+            }
+        });
     }
 </script>
