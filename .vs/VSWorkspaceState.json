@@ -3,6 +3,8 @@
     "",
     "\\Mafia",
     "\\Mafia\\Mafia",
+    "\\Mafia\\Mafia\\Controllers",
+    "\\Mafia\\Mafia\\Models",
     "\\Mafia\\Mafia\\Views",
     "\\Mafia\\Mafia\\Views\\Home"
   ],

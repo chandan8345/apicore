@@ -13,6 +13,7 @@ using Mafia.Models;
 
 namespace Mafia.Controllers
 {
+    [Microsoft.AspNetCore.Cors.EnableCors("CorsApi")]
     [Route("api/[controller]")]
     [ApiController]
     public class TestController : ControllerBase
@@ -22,7 +23,7 @@ namespace Mafia.Controllers
         [HttpGet]
         public string Get()
         {
-            string sql = "select * from employee";
+            string sql = "select a.*,b.name as desig from employee as a left join designation b on a.designation=b.id";
             DataTable dt = da.GetDataTableByCommand(sql);
             return JsonConvert.SerializeObject(dt);
         }
@@ -79,7 +80,8 @@ namespace Mafia.Controllers
         {
             string sql = "delete from employee where id='" + id + "'";
             da.ExecuteScalar(sql);
-            return "delete success";
+            DataTable dt = null;
+            return JsonConvert.SerializeObject(dt);
         }
     }
 }
