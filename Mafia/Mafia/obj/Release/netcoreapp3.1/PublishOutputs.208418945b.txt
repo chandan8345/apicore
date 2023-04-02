@@ -1,6 +1,8 @@
 C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\obj\Release\netcoreapp3.1\PubTmp\Out\Mafia.exe
 C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\css\site.css
 C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\favicon.ico
+C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\ajax.js
+C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\angular.js
 C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\site.js
 C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map

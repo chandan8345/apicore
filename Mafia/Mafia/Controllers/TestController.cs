@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 using Mafia.DAL;
 using System.Collections;
 using Mafia.Models;
+using System.Net;
+using System.Net.Http;
+using Microsoft.AspNetCore.Hosting;
+using AspNetCore.Reporting;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -19,6 +23,14 @@ namespace Mafia.Controllers
     public class TestController : ControllerBase
     {
         data_access da = new data_access();
+        private readonly IWebHostEnvironment webHostEnvironment;
+
+        public TestController(IWebHostEnvironment webHostEnvironment) 
+        {
+            this.webHostEnvironment = webHostEnvironment;
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+        }
+
         // GET: api/<TestController>
         [HttpGet]
         public string Get()
@@ -44,6 +56,26 @@ namespace Mafia.Controllers
             string sql = "select * from employee where id='" + id + "'";
             DataTable dt = da.GetDataTableByCommand(sql);
             return JsonConvert.SerializeObject(dt);
+        }
+
+        [HttpGet("{id}")]
+        [Route("prPrint")]
+        public IActionResult prPrint(int id)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("id", id);
+            string sql = "select * from employee";
+            DataTable dt = da.GetDataTableByCommand(sql);
+
+            var path = $"{this.webHostEnvironment.WebRootPath}\\Report1.rdlc";
+            Dictionary<string, string> p = new Dictionary<string, string>();
+            LocalReport localReport = new LocalReport(path);
+            
+            localReport.AddDataSource("employee", dt);
+
+            var res = localReport.Execute(RenderType.Pdf,1,p,"");
+
+            return File(res.MainStream, "application/pdf");
         }
 
         // POST api/<apiController>
@@ -83,5 +115,6 @@ namespace Mafia.Controllers
             DataTable dt = null;
             return JsonConvert.SerializeObject(dt);
         }
+
     }
 }

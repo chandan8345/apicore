@@ -135,4 +135,13 @@ C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\obj\Debug\netcoreapp
 C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\obj\Debug\netcoreapp3.1\Mafia.dll
 C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\obj\Debug\netcoreapp3.1\Mafia.pdb
 C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\obj\Debug\netcoreapp3.1\Mafia.genruntimeconfig.cache
-C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\obj\Debug\netcoreapp3.1\Mafia.csproj.AssemblyReference.cache
+C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\bin\Debug\netcoreapp3.1\AspNetCore.Reporting.dll
+C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\bin\Debug\netcoreapp3.1\AspNetCore.ReportingServices.dll
+C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\bin\Debug\netcoreapp3.1\System.CodeDom.dll
+C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\bin\Debug\netcoreapp3.1\System.ServiceModel.Http.dll
+C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\bin\Debug\netcoreapp3.1\System.ServiceModel.Primitives.dll
+C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\bin\Debug\netcoreapp3.1\System.ServiceModel.dll
+C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Private.ServiceModel.dll
+C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Private.ServiceModel.dll
+C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\obj\Debug\netcoreapp3.1\RdlCompile.cache
+C:\Users\Admin\Source\Repos\chandan8345\apicore\Mafia\Mafia\obj\Debug\netcoreapp3.1\RdlCompile.compiled

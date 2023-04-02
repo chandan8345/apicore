@@ -4,10 +4,11 @@
     "\\Mafia",
     "\\Mafia\\Mafia",
     "\\Mafia\\Mafia\\Controllers",
+    "\\Mafia\\Mafia\\DAL",
     "\\Mafia\\Mafia\\Models",
     "\\Mafia\\Mafia\\Views",
     "\\Mafia\\Mafia\\Views\\Home"
   ],
-  "SelectedNode": "\\Mafia\\Mafia\\Views\\Home\\Index.cshtml",
+  "SelectedNode": "\\Mafia\\Mafia\\Models\\Empolyee.cs",
   "PreviewInSolutionExplorer": false
 }
